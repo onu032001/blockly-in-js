@@ -14,13 +14,13 @@ addScriptTag('https://unpkg.com/blockly/blockly_compressed.js');
 new Promise((resolve) => checkIfTrue(1, resolve)).then((result) => addScriptTag('https://unpkg.com/blockly/blocks_compressed.js'));
 new Promise((resolve) => checkIfTrue(2, resolve)).then((result) => addScriptTag('https://unpkg.com/blockly/javascript_compressed.js'));
 new Promise((resolve) => checkIfTrue(3, resolve)).then((result) => addScriptTag('https://unpkg.com/blockly/msg/ko.js'));
-let blocklyDiv, toolbox, theme, workspace;
-function addBlockly() {
-    blocklyDiv = document.createElement('div');
-    blocklyDiv.id = 'blocklyDiv';
+let blocklyDivs = [];
+function addBlockly(id) {
+    const blocklyDiv = document.createElement('div');
+    blocklyDiv.id = id;
     blocklyDiv.setAttribute('style', 'width: 1000px; height: calc(1000px * (9 / 16));');
     document.body.append(blocklyDiv);
-    toolbox = {
+    const toolbox = {
         "kind": "categoryToolbox",
         "contents": [
             {
@@ -280,13 +280,14 @@ function addBlockly() {
             }
         ]
     };
-    theme = Blockly.Theme.defineTheme('mainTheme', {
+    const theme = Blockly.Theme.defineTheme('mainTheme', {
         'base': Blockly.Themes.Classic,
     });
-    workspace = Blockly.inject('blocklyDiv', {
+    const workspace = Blockly.inject(id, {
         toolbox,
         theme: 'mainTheme'
     });
+    blocklyDivs.push({blocklyDiv, toolbox, theme, workspace});
 }
-new Promise((resolve) => checkIfTrue(4, resolve)).then((result) => addBlockly());
+new Promise((resolve) => checkIfTrue(4, resolve)).then((result) => console.log('완료'));
 '완료';

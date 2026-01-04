@@ -17,8 +17,6 @@ new Promise((resolve) => checkIfTrue(3, resolve)).then((result) => addScriptTag(
 let blocklyDivs = [];
 function addBlockly(id) {
     const blocklyDiv = document.getElementById(id);
-    blocklyDiv.setAttribute('style', 'width: 1000px; height: calc(1000px * (9 / 16));');
-    document.body.append(blocklyDiv);
     const toolbox = {
         "kind": "categoryToolbox",
         "contents": [

@@ -16,8 +16,7 @@ new Promise((resolve) => checkIfTrue(2, resolve)).then((result) => addScriptTag(
 new Promise((resolve) => checkIfTrue(3, resolve)).then((result) => addScriptTag('https://unpkg.com/blockly/msg/ko.js'));
 let blocklyDivs = [];
 function addBlockly(id) {
-    const blocklyDiv = document.createElement('div');
-    blocklyDiv.id = id;
+    const blocklyDiv = document.getElementById(id);
     blocklyDiv.setAttribute('style', 'width: 1000px; height: calc(1000px * (9 / 16));');
     document.body.append(blocklyDiv);
     const toolbox = {

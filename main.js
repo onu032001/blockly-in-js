@@ -289,10 +289,11 @@ function addBlockly(id) {
                 vertical: true
             },
             drag: true,
-            wheel: false
+            wheel: true
         }
     });
     blocklyDivs.push({blocklyDiv, toolbox, theme, workspace});
 }
 new Promise((resolve) => checkIfTrue(4, resolve)).then((result) => console.log('완료'));
 '완료';
+

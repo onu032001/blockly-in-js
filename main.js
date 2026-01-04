@@ -282,7 +282,15 @@ function addBlockly(id) {
     });
     const workspace = Blockly.inject(id, {
         toolbox,
-        theme: 'mainTheme'
+        theme: 'mainTheme',
+        move: {
+            scrollbars: {
+                horizontal: true,
+                vertical: true
+            },
+            drag: true,
+            wheel: false
+        }
     });
     blocklyDivs.push({blocklyDiv, toolbox, theme, workspace});
 }
